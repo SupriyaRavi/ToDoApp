@@ -6,18 +6,19 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 import ToDoApp.Bean.Task;
 import ToDoApp.DAO.SqlOperation;
 
 
-@WebServlet("/UpdateToDo")
-public class UpdateToDo extends HttpServlet {
+@WebServlet("/DeleteToDo")
+public class DeleteToDo extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	private static final String Time = null;
+	private static final String Date = null;
        
     
-    public UpdateToDo() {
+    public DeleteToDo() {
         super();
         
     }
@@ -25,19 +26,20 @@ public class UpdateToDo extends HttpServlet {
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.setContentType("text/html");  
-		System.out.println("update called");
+		System.out.println("deleted task");
 		String TaskName= request.getParameter("Task");
 		System.out.println(TaskName);
-		Task t =SqlOperation.fetchTask(TaskName);
-		System.out.println("From Servlet :: "+t);
-		 	request.setAttribute("UpdateTask",t);
-		 	request.getRequestDispatcher("UpdateToDo.jsp").forward(request, response);
-		 
+		int i =SqlOperation.deleteTask(TaskName,Date,Time);
+		System.out.println("From Servlet :: "+i);
+		
+		if(i>0) {
+		 	request.getRequestDispatcher("ViewTask").forward(request, response);
+	}
 	}
 
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
 

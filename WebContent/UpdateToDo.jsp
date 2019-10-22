@@ -77,11 +77,12 @@
 					<hr>
 		
 						 Task Name:<br>
-                        <input type="text" name="TaskName"   value="<%=session.getAttribute("TaskName")%>" readonly>
+                        <input type="text" name="TaskName"   value="<%=t.getTaskName() %>" readonly>
 						<br>
 						<br>                                            
-						Reminder Date:<br>
+						Reminder Date<br>
 						<input type="date" name="Date"    id="button1" value="<%=t.getDate()%>" required>
+						 
 						<br>
 						<br> 
 						Reminder Time:<br>

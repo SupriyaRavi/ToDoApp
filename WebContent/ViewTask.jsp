@@ -98,8 +98,8 @@
 			<td><%=j.getTaskName()%></td>
 			<td><%=j.getDate()%></td>
 			<td><%=j.getTime()%></td>
-			<td><a href="UpdateTodo?Task">Update</a></td>
-            <td><a href=" ">Delete</a></td>
+			<td><a href="UpdateToDo?Task=<%=j.getTaskName()%>">Update</a></td>
+            <td><a href="DeleteToDo?Task=<%=j.getTaskName()%>">Delete</a></td>
 		
 			
 		</tr>

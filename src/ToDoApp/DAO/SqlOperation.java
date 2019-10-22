@@ -88,11 +88,28 @@ public class SqlOperation {
 			st.setString(3, TaskName);
 			int flag=st.executeUpdate();
 			System.out.println(flag);
-			System.out.println("Update Successfull");
+			if(flag>0) {
+			System.out.println("Update Successfull");}
 			return flag;
 		}
 		catch (Exception e) {System.out.println(e);}
 	return 0;
+	}
+	
+	
+	public static  int deleteTask(String TaskName,String Date,String Time) {
+		conn=DBConnector.dbConnector();
+		String query="delete from AddTask where TaskName=?";
+		System.out.println("task name"+TaskName);
+		try {
+			PreparedStatement st=conn.prepareStatement(query);
+			st.setString(1, TaskName);
+			int flag=st.executeUpdate();
+			return flag;
+			
+		} catch (SQLException e) {e.printStackTrace();}
+		return 0;
+		
 	}
 	
 	}

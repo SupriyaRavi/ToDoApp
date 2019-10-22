@@ -26,7 +26,7 @@ public class UpdateTaskValues extends HttpServlet {
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	HttpSession s=request.getSession();
-	String TaskName=(String) s.getAttribute("TaskName");
+	String TaskName=request.getParameter("TaskName");
 	String Date=request.getParameter("Date");
 	String Time=request.getParameter("Time");
 	PrintWriter p=response.getWriter();
@@ -45,7 +45,7 @@ public class UpdateTaskValues extends HttpServlet {
 
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+		
 		doGet(request, response);
 	}
 
